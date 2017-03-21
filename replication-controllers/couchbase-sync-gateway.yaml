@@ -3,7 +3,7 @@ kind: ReplicationController
 metadata:
   name: couchbase-sync-gateway
 spec:
-  replicas: 2
+  replicas: 1
   # selector identifies the set of Pods that this
   # replicaController is responsible for managing
   selector:
