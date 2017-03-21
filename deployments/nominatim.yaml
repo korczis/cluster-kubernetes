@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nominatim-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nominatim
+    spec:
+      containers:
+      - name: nominatim
+        image: korczis/nominatim
+        ports:
+        - containerPort: 8080
+          name: apiport
+          protocol: TCP
