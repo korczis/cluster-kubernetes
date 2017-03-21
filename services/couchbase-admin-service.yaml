@@ -10,6 +10,9 @@ spec:
     - port: 8092
       name: views
       targetPort: views
+    - port: 11210
+      name: management
+      targetPort: management
   type: "LoadBalancer"
   # just like the selector in the replication controller,
   # but this time it identifies the set of pods to load balance

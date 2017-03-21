@@ -27,6 +27,8 @@ spec:
               containerPort: 8091
             - name: views
               containerPort: 8092
+            - name: management
+              containerPort: 11210
         - name: couchbase-sidekick
           image: tleyden5iwx/couchbase-cluster-go:latest
           command:
