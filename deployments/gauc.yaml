@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: gauc-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: gauc
+    spec:
+      containers:
+      - name: gauc
+        image: korczis/gauc
+        command: ["/cargo/bin/gauc"]
+        args: ["-vv", "-r", "-u", "couchbase://couchbase-admin-service/default"]
+        ports:
+        - containerPort: 5000
+          name: restapi
+          protocol: TCP
