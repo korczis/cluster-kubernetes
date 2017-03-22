@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kibana-service
+  labels:
+    app: kibana
+spec:
+  ports:
+    # the port that this service should serve on
+  - port: 5601
+    name: webui
+    targetPort: webui
+  selector:
+    app: kibana
+  type: "LoadBalancer"

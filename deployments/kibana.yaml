@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: kibana-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      containers:
+      - name: kibana
+        image: korczis/kibana:no-xpack
+        ports:
+        - containerPort: 5601
+          name: webui
+          protocol: TCP
+        env:
+        - name: "ELASTICSEARCH_URL"
+          value: "http://elasticsearch-service:9200"
