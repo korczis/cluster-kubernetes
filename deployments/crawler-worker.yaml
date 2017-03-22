@@ -11,6 +11,6 @@ spec:
     spec:
       containers:
       - name: crawler-worker
-        image: korczis/microcrawler-worker:latest
+        image: korczis/microcrawler-worker:0.0.16
         args: ["--count", "16", "-u", "ws://crawler-webapp-service:4000/worker", "-a", "http://crawler-webapp-service:4000/api/v1/auth/signin", "--username", "korczis@gmail.com", "--password", "jindrisska"]
 
