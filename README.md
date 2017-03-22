@@ -35,9 +35,11 @@ cd cluster-kubernetes
 
 ```
 ./scripts/create-etcd.sh
+./scripts/create-nominatim.sh
 ./scripts/create-es-master.sh
 ./scripts/create-es-other.sh
 ./scripts/create-couchbase.sh
+./scripts/create-gauc.sh
 ```
 
 ### ectd-operator
@@ -154,8 +156,8 @@ and you should see:
 ***Deploy***
 
 ```
-$ kubectl create -f services/es-discovery-svc.yaml
-$ kubectl create -f services/es-svc.yaml
+$ kubectl create -f services/es-discovery.yaml
+$ kubectl create -f services/es.yaml
 $ kubectl create -f deployments/es-master.yaml
 ```
 
@@ -171,7 +173,7 @@ $ kubectl create -f deployments/es-data.yaml
 ```
 $ kubectl create -f deployments/es-client.yaml
 $ kubectl create -f storage-classes/es-data.yaml
-$ kubectl create -f stateful-sets/es-data-svc.yaml
+$ kubectl create -f stateful-sets/es-data.yaml
 $ kubectl create -f stateful-sets/es-data.yaml
 ```
 
