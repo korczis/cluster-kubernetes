@@ -27,4 +27,4 @@ spec:
         - name: "GAUC_URL"
           value: "http://gauc-service:5000"
         - name: "ELASTIC_URL"
-          value: "http://elasticsearch-service:9200"
+          value: "http://elastic:changeme@elasticsearch-service:9200"

@@ -54,8 +54,9 @@ spec:
           value: "true"
         - name: "ES_JAVA_OPTS"
           value: "-Xms256m -Xmx256m"
-#        - name: "ES_PLUGINS_INSTALL"
-#          value: "repository-gcs,x-pack"
+        # https://www.elastic.co/guide/en/elasticsearch/plugins/current/intro.html
+        - name: "ES_PLUGINS_INSTALL"
+          value: "x-pack"
         ports:
         - containerPort: 9200
           name: http
