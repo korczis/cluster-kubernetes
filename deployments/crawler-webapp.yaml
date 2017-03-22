@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: crawler-webapp-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: crawler-webapp
+    spec:
+      containers:
+      - name: crawler-webapp
+        image: korczis/microcrawler-webapp:latest
+        command: ["/start.sh"]
+        ports:
+        - containerPort: 4000
+          name: restapi
+          protocol: TCP
+        env:
+        - name: "AMQP_USERNAME"
+          value: "username"
+        - name: "AMQP_PASSWORD"
+          value: "password"
+        - name: "AMQP_HOSTNAME"
+          value: "rabbitmq"
+        - name: "GAUC_URL"
+          value: "http://gauc-service:5000"
+        - name: "ELASTIC_URL"
+          value: "http://elasticsearch-service:9200"
