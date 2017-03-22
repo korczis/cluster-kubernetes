@@ -40,6 +40,8 @@ cd cluster-kubernetes
 ./scripts/create-es-other.sh
 ./scripts/create-couchbase.sh
 ./scripts/create-gauc.sh
+./scripts/create-crawler-webapp.sh
+./scripts/create-crawler-worker.sh
 ```
 
 ### ectd-operator
