@@ -4,6 +4,7 @@ metadata:
   name: crawler-webapp-deployment
 spec:
   replicas: 1
+  revisionHistoryLimit: 2
   template:
     metadata:
       labels:
@@ -11,7 +12,7 @@ spec:
     spec:
       containers:
       - name: crawler-webapp
-        image: korczis/microcrawler-webapp:latest
+        image: korczis/microcrawler-webapp:0.0.3
         command: ["/start.sh"]
         ports:
         - containerPort: 4000
