@@ -31,6 +31,15 @@ cd cluster-kubernetes
 
 ## Running
 
+### Install Weave
+
+For more details see [weave website](https://www.weave.works/)
+
+```
+./scripts/weave-install.sh
+./scripts/weave-ui.sh
+```
+
 ### High Level
 
 ```
@@ -186,3 +195,5 @@ $ kubectl create -f stateful-sets/es-data.yaml
 - [pires/kubernetes-elasticsearch-cluster](https://github.com/pires/kubernetes-elasticsearch-cluster) - Elasticsearch cluster on top of Kubernetes made easy.
 - [pires/kubernetes-elk-cluster](https://github.com/pires/kubernetes-elk-cluster) - ELK (Elasticsearch + Logstash + Kibana) cluster on top of Kubernetes made easy.
 - [nanit/kubernetes-rabbitmq-cluster](https://github.com/nanit/kubernetes-rabbitmq-cluster) - Deploy-ready rabbitmq cluster for kubernetes 1.5.X
+- [peter-evans/nominatim-k8s](https://github.com/peter-evans/nominatim-k8s) - Nominatim for Kubernetes on Google Container Engine (GKE). 
+
