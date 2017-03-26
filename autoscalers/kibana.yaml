@@ -1,12 +1,12 @@
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: crawler-worker-scaler
+  name: kibana-scaler
 spec:
   scaleTargetRef:
     apiVersion: extensions/v1beta1
     kind: Deployment
-    name: crawler-worker-deployment
-  minReplicas: 3
+    name: kibana-deployment
+  minReplicas: 1
   maxReplicas: 10
   targetCPUUtilizationPercentage: 70
