@@ -3,7 +3,8 @@
 ROOT_DIR=`dirname $BASH_SOURCE`/..
 
 # TODO: Get zone automatically
-ZONE="europe-west1-b"
+ZONE="europe-west1-d"
+
 ETCD_NODE=`kubectl describe pod etcd-cluster | grep Node | awk '{print $2}'| sed 's/\/.*//' | head -n 1`
 ETCD_IP=`kubectl describe pod etcd-cluster | grep IP: | awk '{print $2}' | head -n 1`
 PASSWORD=`openssl rand -base64 16`

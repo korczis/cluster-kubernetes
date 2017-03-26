@@ -4,7 +4,9 @@ metadata:
   name: crawler-webapp-deployment
 spec:
   replicas: 1
-  revisionHistoryLimit: 2
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 3
   template:
     metadata:
       labels:
@@ -12,13 +14,18 @@ spec:
     spec:
       containers:
       - name: crawler-webapp
-        image: korczis/microcrawler-webapp:0.0.3
+        image: korczis/microcrawler-webapp:0.0.6
+        imagePullPolicy: Always
         command: ["/start.sh"]
         ports:
         - containerPort: 4000
           name: restapi
           protocol: TCP
         env:
+        - name: "MIX_ENV"
+          value: "prod"
+        - name: "PORT"
+          value: "4000"
         - name: "AMQP_USERNAME"
           value: "username"
         - name: "AMQP_PASSWORD"
