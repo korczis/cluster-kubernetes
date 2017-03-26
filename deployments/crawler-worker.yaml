@@ -4,6 +4,10 @@ metadata:
   name: crawler-worker-deployment
 spec:
   replicas: 5
+  strategy:
+    type: RollingUpdate
+  revisionHistoryLimit: 3
+  minReadySeconds: 60
   template:
     metadata:
       labels:

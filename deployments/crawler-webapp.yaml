@@ -5,8 +5,9 @@ metadata:
 spec:
   replicas: 1
   strategy:
-    type: Recreate
+    type: RollingUpdate
   revisionHistoryLimit: 3
+  minReadySeconds: 60
   template:
     metadata:
       labels:
@@ -14,7 +15,7 @@ spec:
     spec:
       containers:
       - name: crawler-webapp
-        image: korczis/microcrawler-webapp:0.0.6
+        image: korczis/microcrawler-webapp:0.0.7
         imagePullPolicy: Always
         command: ["/start.sh"]
         ports:
