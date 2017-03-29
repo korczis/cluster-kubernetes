@@ -20,13 +20,13 @@ echo "Command: ${CMD}"
 
 eval "gcloud compute ssh --zone ${ZONE} ${ETCD_NODE} --command \"${CMD}\""
 
-kubectl create -f ${ROOT_DIR}/replication-controllers/couchbase-admin-server.yaml
-kubectl create -f ${ROOT_DIR}/replication-controllers/couchbase-server.yaml
+kubectl create -f ${ROOT_DIR}/deployments/couchbase-admin-server.yaml
+kubectl create -f ${ROOT_DIR}/deployments/couchbase-server.yaml
 
 kubectl create -f ${ROOT_DIR}/services/couchbase-service.yaml
 kubectl create -f ${ROOT_DIR}/services/couchbase-admin-service.yaml
 
-kubectl create -f ${ROOT_DIR}/replication-controllers/couchbase-sync-gateway.yaml
+kubectl create -f ${ROOT_DIR}/deployments/couchbase-sync-gateway.yaml
 kubectl create -f ${ROOT_DIR}/services/couchbase-sync-gateway.yaml
 
 kubectl describe service couchbase-sync-gateway
