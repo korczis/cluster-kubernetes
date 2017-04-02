@@ -37,3 +37,7 @@ spec:
           value: "http://gauc-service:5000"
         - name: "ELASTIC_URL"
           value: "http://elastic:changeme@elasticsearch-service:9200"
+        - name: "EXTERNAL_IP"
+          valueFrom:
+            fieldRef:
+              fieldPath: status.loadBalancer[0].ingress[0].ip
