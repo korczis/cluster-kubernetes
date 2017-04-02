@@ -1,11 +1,12 @@
-apiVersion: extensions/v1beta1
-kind: Deployment
+apiVersion: apps/v1beta1
+kind: StatefulSet
 metadata:
   name: couchbase-server-deployment
   labels:
     component: couchbase-server
     role: nodes
 spec:
+  serviceName: couchbase-server
   replicas: 2
   template:
     metadata:
