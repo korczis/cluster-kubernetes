@@ -2,8 +2,11 @@
 
 ROOT_DIR=`dirname $BASH_SOURCE`/..
 
-kubectl apply -f ${ROOT_DIR}/deployments/couchbase-admin-server.yaml
-kubectl apply -f ${ROOT_DIR}/deployments/couchbase-server.yaml
+#kubectl apply -f ${ROOT_DIR}/deployments/couchbase-admin-server.yaml
+#kubectl apply -f ${ROOT_DIR}/deployments/couchbase-server.yaml
+
+kubectl apply -f ${ROOT_DIR}/stateful-sets/couchbase-admin-server.yaml
+kubectl apply -f ${ROOT_DIR}/stateful-sets/couchbase-server.yaml
 
 kubectl apply -f ${ROOT_DIR}/services/couchbase-service.yaml
 kubectl apply -f ${ROOT_DIR}/services/couchbase-admin-service.yaml

@@ -1,11 +1,12 @@
-apiVersion: extensions/v1beta1
-kind: Deployment
+apiVersion: apps/v1beta1
+kind: StatefulSet
 metadata:
   name: couchbase-admin-deployment
   labels:
     component: couchbase-server
     role: admin
 spec:
+  serviceName: couchbase-admin
   replicas: 1
   template:
     metadata:
@@ -26,9 +27,22 @@ spec:
               containerPort: 8092
             - name: management
               containerPort: 11210
+          volumeMounts:
+            - name: storage-couchbase-admin
+              mountPath: /opt/var/couchbase
         - name: couchbase-sidekick
           image: tleyden5iwx/couchbase-cluster-go:latest
           command:
             - /bin/sh
             - -c
             - update-wrapper --skip-etcd-check couchbase-cluster start-couchbase-sidekick --discover-local-ip --etcd-servers http://etcd-cluster:2379
+  volumeClaimTemplates:
+    - metadata:
+        name: storage-couchbase-admin
+        annotations:
+          volume.beta.kubernetes.io/storage-class: standard
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 32Gi

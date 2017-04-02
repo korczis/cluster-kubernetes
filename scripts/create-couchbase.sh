@@ -20,8 +20,11 @@ echo "Command: ${CMD}"
 
 eval "gcloud compute ssh --zone ${ZONE} ${ETCD_NODE} --command \"${CMD}\""
 
-kubectl create -f ${ROOT_DIR}/deployments/couchbase-admin-server.yaml
-kubectl create -f ${ROOT_DIR}/deployments/couchbase-server.yaml
+#kubectl create -f ${ROOT_DIR}/deployments/couchbase-admin-server.yaml
+#kubectl create -f ${ROOT_DIR}/deployments/couchbase-server.yaml
+
+kubectl create -f ${ROOT_DIR}/stateful-sets/couchbase-admin-server.yaml
+kubectl create -f ${ROOT_DIR}/stateful-sets/couchbase-server.yaml
 
 kubectl create -f ${ROOT_DIR}/services/couchbase-service.yaml
 kubectl create -f ${ROOT_DIR}/services/couchbase-admin-service.yaml
