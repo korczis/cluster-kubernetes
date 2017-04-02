@@ -25,16 +25,9 @@ spec:
               containerPort: 8092
             - name: management
               containerPort: 11210
-          volumeMounts:
-            - mountPath: "/opt/couchbase/var"
-              name: mypd
         - name: couchbase-sidekick
           image: tleyden5iwx/couchbase-cluster-go:latest
           command:
             - /bin/sh
             - -c
             - update-wrapper --skip-etcd-check couchbase-cluster start-couchbase-sidekick --discover-local-ip --etcd-servers http://etcd-cluster:2379
-      volumes:
-        - name: mypd
-          persistentVolumeClaim:
-            claimName: myclaim
