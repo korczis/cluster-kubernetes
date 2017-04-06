@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: crawler-webapp
-        image: korczis/microcrawler-webapp:0.0.7
+        image: korczis/microcrawler-webapp:0.0.8
         imagePullPolicy: Always
         command: ["/start.sh"]
         ports:
@@ -23,8 +23,8 @@ spec:
           name: restapi
           protocol: TCP
         env:
-        - name: "MIX_ENV"
-          value: "prod"
+#        - name: "MIX_ENV"
+#          value: "prod"
         - name: "PORT"
           value: "4000"
         - name: "AMQP_USERNAME"
@@ -37,7 +37,3 @@ spec:
           value: "http://gauc-service:5000"
         - name: "ELASTIC_URL"
           value: "http://elastic:changeme@elasticsearch-service:9200"
-        - name: "EXTERNAL_IP"
-          valueFrom:
-            fieldRef:
-              fieldPath: status.loadBalancer[0].ingress[0].ip
