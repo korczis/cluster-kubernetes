@@ -10,17 +10,27 @@ spec:
   - hosts:
     - apollocrawler.com
     - goodcrawler.com
-    secretName: echoserver-tls
+    secretName: kube-lego
   rules:
   - host: apollocrawler.com
     http:
       paths:
-      - backend:
+      - path: /*
+        backend:
           serviceName: crawler-webapp-service
           servicePort: 4000
+      - path: /.well-known/acme-challenge/*
+        backend:
+          serviceName: kube-lego-gce
+          servicePort: 8080
   - host: goodcrawler.com
     http:
       paths:
-      - backend:
+      - path: /*
+        backend:
           serviceName: crawler-webapp-service
           servicePort: 4000
+      - path: /.well-known/acme-challenge/*
+        backend:
+          serviceName: kube-lego-gce
+          servicePort: 8080
