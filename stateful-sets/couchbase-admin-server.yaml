@@ -25,8 +25,42 @@ spec:
               containerPort: 8091
             - name: views
               containerPort: 8092
+            - name: query
+              containerPort: 8093
+            - name: search
+              containerPort: 8094
+            - name: internal-admin
+              containerPort: 9100
+            - name: internal-scan
+              containerPort: 9101
+            - name: internal-http
+              containerPort: 9102
+            - name: stream-init
+              containerPort: 9103
+            - name: stream-catchup
+              containerPort: 9104
+            - name: stream-mtnc
+              containerPort: 9105
+            - name: internal-rest
+              containerPort: 9998
+            - name: gsi
+              containerPort: 9999
+            - name: internal-bucket
+              containerPort: 11209
             - name: management
               containerPort: 11210
+            - name: management-old
+              containerPort: 11211
+            - name: ssl-xdcr-1
+              containerPort: 11214
+            - name: ssl-xdcr-2
+              containerPort: 11215
+            - name: web-console-ssl
+              containerPort: 18091
+            - name: access-ssl
+              containerPort: 18092
+            - name: n1ql
+              containerPort: 18093
           volumeMounts:
             - name: storage-couchbase-admin
               mountPath: /opt/var/couchbase

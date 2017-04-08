@@ -5,7 +5,8 @@ metadata:
   labels:
     app: rabbitmq
 spec:
-  type: ClusterIP
+  # type: ClusterIP
+  type: LoadBalancer
   selector:
     app: rabbitmq
   ports:
