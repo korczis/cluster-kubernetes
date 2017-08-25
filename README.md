@@ -50,6 +50,7 @@ For more details see [weave website](https://www.weave.works/).
 ./scripts/create-nominatim.sh
 ./scripts/create-es-master.sh
 ./scripts/create-es-other.sh
+./scripts/create-kibana.sh
 ./scripts/create-couchbase.sh
 ./scripts/create-gauc.sh
 ./scripts/create-crawler-webapp.sh

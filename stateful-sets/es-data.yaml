@@ -33,7 +33,7 @@ spec:
           capabilities:
             add:
               - IPC_LOCK
-        image: quay.io/pires/docker-elasticsearch-kubernetes:5.2.2_2
+        image: docker.elastic.co/elasticsearch/elasticsearch:5.5.2
         imagePullPolicy: Always
         env:
         - name: NAMESPACE
@@ -45,7 +45,7 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         - name: "CLUSTER_NAME"
-          value: "myesdb"
+          value: "docker-cluster"
         - name: NODE_MASTER
           value: "false"
         - name: NODE_INGEST
@@ -56,7 +56,9 @@ spec:
           value: "-Xms1024m -Xmx1024m"
         # https://www.elastic.co/guide/en/elasticsearch/plugins/current/intro.html
         - name: "ES_PLUGINS_INSTALL"
-          value: "x-pack"
+          value: "repository-gcs,x-pack"
+        - name: "NETWORK_HOST"
+          value: "_eth0:ipv4_"
         ports:
         - containerPort: 9300
           name: transport
