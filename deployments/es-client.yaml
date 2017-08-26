@@ -32,12 +32,14 @@ spec:
         imagePullPolicy: Always
         command: ["bin/elasticsearch"]
         args: [
-          "-Ehttp.host=0.0.0.0",
-          "-Etransport.host=_eth0:ipv4_",
-          "-Ediscovery.zen.ping.unicast.hosts=elasticsearch-discovery",
-          "-Ediscovery.zen.minimum_master_nodes=2",
           "-Ecluster.name=docker-cluster",
-          "-Enetwork.bind_host=_eth0:ipv4_"
+          "-Ediscovery.zen.minimum_master_nodes=2",
+          "-Ediscovery.zen.ping.unicast.hosts=elasticsearch-discovery",
+          "-Ehttp.host=0.0.0.0",
+          "-Enetwork.bind_host=_eth0:ipv4_",
+          "-Enode.data=false",
+          "-Enode.master=false",
+          "-Etransport.host=_eth0:ipv4_"
         ]
         env:
         - name: NAMESPACE
@@ -48,10 +50,6 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.name
-        - name: NODE_MASTER
-          value: "false"
-        - name: NODE_DATA
-          value: "false"
         - name: HTTP_ENABLE
           value: "true"
         - name: "ES_JAVA_OPTS"

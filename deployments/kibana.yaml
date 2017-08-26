@@ -19,3 +19,7 @@ spec:
         env:
         - name: "ELASTICSEARCH_URL"
           value: "http://elastic:changeme@elasticsearch-service:9200"
+        - name: NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
