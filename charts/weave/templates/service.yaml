@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: weave-scope-app
+  annotations:
+    cloud.weave.works/launcher-info: |-
+      {
+        "server-version": "master-327a869",
+        "original-request": {
+          "url": "/k8s/v1.5/scope.yaml",
+          "date": "Sat Aug 26 2017 19:25:17 GMT+0000 (UTC)"
+        },
+        "email-address": "support@weave.works"
+      }
+  labels:
+    name: weave-scope-app
+    app: weave-scope
+    weave-cloud-component: scope
+    weave-scope-component: app
+spec:
+  ports:
+    - name: app
+      port: 80
+      protocol: TCP
+      targetPort: 4040
+  selector:
+    name: weave-scope-app
+    app: weave-scope
+    weave-cloud-component: scope
+    weave-scope-component: app

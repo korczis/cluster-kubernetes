@@ -12,8 +12,9 @@ Kubernetes Cluster
 
 ## Prerequisites
 
-- [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/) - is a command line interface for running commands against Kubernetes clusters
 - Kubernetes Cluster
+- [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/) - is a command line interface for running commands against Kubernetes clusters
+- [helm](https://docs.helm.sh/using_helm/#installing-helm) - the package manager for Kubernetes
 
 ## Getting Started
 
@@ -28,6 +29,12 @@ git clone https://github.com/ApolloCrawler/cluster-kubernetes
 ```
 cd cluster-kubernetes
 ```
+
+## First Steps
+
+### Initialize helm
+
+```helm init```
 
 ## Running
 

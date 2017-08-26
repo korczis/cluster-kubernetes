@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: weave-scope-app
+  annotations:
+    cloud.weave.works/launcher-info: |-
+      {
+        "server-version": "master-327a869",
+        "original-request": {
+          "url": "/k8s/v1.5/scope.yaml",
+          "date": "Sat Aug 26 2017 19:25:17 GMT+0000 (UTC)"
+        },
+        "email-address": "support@weave.works"
+      }
+  labels:
+    name: weave-scope-app
+    app: weave-scope
+    weave-cloud-component: scope
+    weave-scope-component: app
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: weave-scope-app
+        app: weave-scope
+        weave-cloud-component: scope
+        weave-scope-component: app
+    spec:
+      containers:
+        - name: app
+          args:
+            - '--no-probe'
+          image: 'weaveworks/scope:1.6.3'
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 4040
+              protocol: TCP

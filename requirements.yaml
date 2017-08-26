@@ -1,0 +1,16 @@
+dependencies:
+  - name: elasticsearch
+    version: 0.1.0
+    repository: file://charts/elasticsearch
+  - name: kibana
+    version: 0.1.0
+    repository: file://charts/kibana
+#  - name: logstash
+#    version: 0.1.0
+#    repository: file://charts/logstash
+  - name: prometheus
+    version: 0.1.0
+    repository: file://charts/prometheus
+  - name: weave
+    version: 0.1.0
+    repository: file://charts/weave
