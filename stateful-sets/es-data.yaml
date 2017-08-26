@@ -13,19 +13,14 @@ spec:
       labels:
         component: elasticsearch
         role: data
-      annotations:
-        pod.beta.kubernetes.io/init-containers: '[
-          {
-            "name": "sysctl",
-            "image": "busybox",
-            "imagePullPolicy": "IfNotPresent",
-            "command": ["sysctl", "-w", "vm.max_map_count=262144"],
-            "securityContext": {
-              "privileged": true
-            }
-          }
-        ]'
     spec:
+      initContainers:
+      - name: init-sysctl
+        image: busybox
+        imagePullPolicy: IfNotPresent
+        command: ["sysctl", "-w", "vm.max_map_count=262144"]
+        securityContext:
+          privileged: true
       containers:
       - name: es-data
         securityContext:
@@ -35,6 +30,18 @@ spec:
               - IPC_LOCK
         image: docker.elastic.co/elasticsearch/elasticsearch:5.5.2
         imagePullPolicy: Always
+        command: ["bin/elasticsearch"]
+        args: [
+          "-Ehttp.host=0.0.0.0",
+          "-Etransport.host=_eth0:ipv4_",
+          "-Ediscovery.zen.ping.unicast.hosts=elasticsearch-discovery",
+          #"-Ediscovery.zen.ping.multicast.enabled=false",
+          "-Ediscovery.zen.minimum_master_nodes=2",
+          # "-Ediscovery.zen.hosts_provider=kubernetes",
+          # "-Ecloud.kubernetes.service=elasticsearch-discovery",
+          "-Ecluster.name=docker-cluster",
+          "-Enetwork.bind_host=_eth0:ipv4_"
+        ]
         env:
         - name: NAMESPACE
           valueFrom:
@@ -47,8 +54,6 @@ spec:
         - name: "CLUSTER_NAME"
           value: "docker-cluster"
         - name: NODE_MASTER
-          value: "false"
-        - name: NODE_INGEST
           value: "false"
         - name: HTTP_ENABLE
           value: "false"
