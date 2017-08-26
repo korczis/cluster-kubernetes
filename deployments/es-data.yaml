@@ -35,10 +35,7 @@ spec:
           "-Ehttp.host=0.0.0.0",
           "-Etransport.host=_eth0:ipv4_",
           "-Ediscovery.zen.ping.unicast.hosts=elasticsearch-discovery",
-          #"-Ediscovery.zen.ping.multicast.enabled=false",
           "-Ediscovery.zen.minimum_master_nodes=2",
-          # "-Ediscovery.zen.hosts_provider=kubernetes",
-          # "-Ecloud.kubernetes.service=elasticsearch-discovery",
           "-Ecluster.name=docker-cluster",
           "-Enetwork.bind_host=_eth0:ipv4_"
         ]
@@ -51,19 +48,12 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.name
-        - name: "CLUSTER_NAME"
-          value: "docker-cluster"
         - name: NODE_MASTER
           value: "false"
         - name: HTTP_ENABLE
           value: "false"
         - name: "ES_JAVA_OPTS"
           value: "-Xms1024m -Xmx1024m"
-        # https://www.elastic.co/guide/en/elasticsearch/plugins/current/intro.html
-        - name: "ES_PLUGINS_INSTALL"
-          value: "repository-gcs,x-pack,discovery-kubernetes"
-        - name: "NETWORK_HOST"
-          value: "_eth0:ipv4_"
         ports:
         - containerPort: 9300
           name: transport
