@@ -6,7 +6,7 @@ metadata:
     component: elasticsearch
     role: master
 spec:
-  replicas: 3
+  replicas: {{ .Values.node.master.replicas }}
   template:
     metadata:
       labels:

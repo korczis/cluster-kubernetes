@@ -2,3 +2,12 @@ image:
   repository: docker.elastic.co/elasticsearch/elasticsearch
   tag: 5.5.2
   pullPolicy: Always
+
+node:
+  client:
+    replicas: 3
+  data:
+    replicas: 3
+    storage: 8Gi
+  master:
+    replicas: 3
