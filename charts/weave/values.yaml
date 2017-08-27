@@ -1,0 +1,6 @@
+image:
+  repository: weaveworks/scope
+  tag: 1.6.3
+  pullPolicy: Always
+
+port: 4040

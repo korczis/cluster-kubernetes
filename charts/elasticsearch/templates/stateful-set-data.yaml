@@ -28,8 +28,8 @@ spec:
           capabilities:
             add:
               - IPC_LOCK
-        image: docker.elastic.co/elasticsearch/elasticsearch:5.5.2
-        imagePullPolicy: Always
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         command: ["bin/elasticsearch"]
         args: [
           "-Ecluster.name=docker-cluster",

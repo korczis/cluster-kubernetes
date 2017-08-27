@@ -1,0 +1,4 @@
+image:
+  repository: docker.elastic.co/kibana/kibana
+  tag: 5.5.2
+  pullPolicy: Always

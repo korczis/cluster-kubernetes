@@ -1,0 +1,4 @@
+image:
+  repository: docker.elastic.co/elasticsearch/elasticsearch
+  tag: 5.5.2
+  pullPolicy: Always

@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: weave-scope-app
+  name: weave-service
   annotations:
     cloud.weave.works/launcher-info: |-
       {
@@ -31,8 +31,8 @@ spec:
         - name: app
           args:
             - '--no-probe'
-          image: 'weaveworks/scope:1.6.3'
-          imagePullPolicy: IfNotPresent
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - containerPort: 4040
+            - containerPort: {{ .Values.port }}
               protocol: TCP

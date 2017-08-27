@@ -12,8 +12,9 @@ spec:
         app: prometheus
     spec:
       containers:
-      - image: quay.io/prometheus/prometheus:v1.0.1
-        name: prometheus
+      - name: prometheus
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         command:
         - "/bin/prometheus"
         args:

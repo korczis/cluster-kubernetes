@@ -1,0 +1,4 @@
+image:
+  repository: quay.io/prometheus/prometheus
+  tag: v1.0.1
+  pullPolicy: Always
