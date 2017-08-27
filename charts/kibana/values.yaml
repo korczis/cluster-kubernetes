@@ -2,3 +2,11 @@ image:
   repository: docker.elastic.co/kibana/kibana
   tag: 5.5.2
   pullPolicy: Always
+
+replicas: 1
+
+port: 5601
+
+auth:
+  username: elastic
+  password: changeme

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: kibana-deployment
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicas }}
   template:
     metadata:
       labels:
@@ -14,12 +14,12 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
-        - containerPort: 5601
+        - containerPort: {{ .Values.port }}
           name: webui
           protocol: TCP
         env:
         - name: "ELASTICSEARCH_URL"
-          value: "http://elastic:changeme@elasticsearch-service:9200"
+          value: "http://{{ .Values.auth.username }}:{{ .Values.auth.password }}@elasticsearch-service:9200"
         - name: NODE_NAME
           valueFrom:
             fieldRef:

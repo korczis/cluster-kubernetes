@@ -55,7 +55,7 @@ spec:
         - name: "ES_JAVA_OPTS"
           value: "-Xms256m -Xmx256m"
         ports:
-        - containerPort: 9300
+        - containerPort: {{ .Values.port.transport }}
           name: transport
           protocol: TCP
         volumeMounts:

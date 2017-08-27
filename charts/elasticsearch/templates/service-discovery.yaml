@@ -11,5 +11,5 @@ spec:
     role: master
   ports:
   - name: transport
-    port: 9300
+    port: {{ .Values.port.transport }}
     protocol: TCP

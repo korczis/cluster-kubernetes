@@ -7,7 +7,7 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-  - port: 5601
+  - port: {{ .Values.port }}
     name: webui
     targetPort: webui
   selector:
