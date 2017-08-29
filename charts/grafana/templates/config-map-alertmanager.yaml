@@ -4,5 +4,5 @@ metadata:
   name: alertmanager
   namespace: monitoring
 data:
-  /etc/alertmanager/config.yml: |-
+  config.yml: |-
 {{.Files.Get "files/config.yml" | indent 4}}
