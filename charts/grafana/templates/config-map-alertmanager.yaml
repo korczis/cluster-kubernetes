@@ -1,0 +1,8 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: alertmanager
+  namespace: monitoring
+data:
+  /etc/alertmanager/config.yml: |-
+{{.Files.Get "files/config.yml" | indent 4}}

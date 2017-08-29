@@ -1,0 +1,15 @@
+apiVersion: v1
+data:
+  cpu-usage.rules: |-
+{{.Files.Get "files/cpu-usage.rules" | indent 4}}
+  instance-availability.rules: |-
+{{.Files.Get "files/instance-availability.rules" | indent 4}}
+  low-disk-space.rules: |-
+{{.Files.Get "files/low-disk-space.rules" | indent 4}}
+  mem-usage.rules: |-
+{{.Files.Get "files/mem-usage.rules" | indent 4}}
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: prometheus-rules
+  namespace: monitoring
