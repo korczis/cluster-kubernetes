@@ -33,7 +33,7 @@ spec:
         command: ["bin/elasticsearch"]
         args: [
           "-Ecluster.name=docker-cluster",
-          "-Ediscovery.zen.minimum_master_nodes=2",
+          "-Ediscovery.zen.minimum_master_nodes={{ .Values.discovery.zen.minimum_master_nodes }}",
           "-Ediscovery.zen.ping.unicast.hosts=elasticsearch-discovery",
           "-Ehttp.host=0.0.0.0",
           "-Enetwork.bind_host=_eth0:ipv4_",
