@@ -1,4 +1,4 @@
 image:
-  repository: couchbase/server
-  tag: enterprise-4.6.0
+  repository: rabbitmq
+  tag: 3-management
   pullPolicy: Always
