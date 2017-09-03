@@ -1,0 +1,12 @@
+image:
+  repository: fluent/fluentd-kubernetes-daemonset
+  tag: elasticsearch
+  pullPolicy: Always
+
+elasticsearch:
+  scheme: "http"
+  host: "elasticsearch-service.default"
+  port: 9200
+  auth:
+    username: elastic
+    password: changeme
