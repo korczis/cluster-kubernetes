@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: couchbase-sync-gateway-deployment
+  labels:
+    name: sync-gateway
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: sync-gateway
+    spec:
+      containers:
+        - name: sync-gateway
+          image: couchbase/sync-gateway
+          command:
+            - sync_gateway
+            - https://raw.githubusercontent.com/couchbase/kubernetes/master/config/sync-gateway.config
+          ports:
+            - containerPort: 4984
+            - containerPort: 4985
