@@ -1,0 +1,4 @@
+image:
+  repository: couchbase/server
+  tag: enterprise-4.6.0
+  pullPolicy: Always
