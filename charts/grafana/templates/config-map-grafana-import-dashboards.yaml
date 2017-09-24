@@ -4,6 +4,8 @@ data:
 {{.Files.Get "files/grafana-net-2-dashboard.json" | indent 4}}
   grafana-net-737-dashboard.json: |-
 {{.Files.Get "files/grafana-net-737-dashboard.json" | indent 4}}
+  elasticsearch-datasource.json: |-
+{{.Files.Get "files/elasticsearch-datasource.json" | indent 4}}
   prometheus-datasource.json: |-
 {{.Files.Get "files/prometheus-datasource.json" | indent 4}}
 kind: ConfigMap

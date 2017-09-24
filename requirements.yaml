@@ -1,13 +1,22 @@
 dependencies:
+  - name: couchbase
+    version: 0.1.0
+    repository: file://charts/couchbase
   - name: elasticsearch
     version: 0.1.0
     repository: file://charts/elasticsearch
+  - name: etcd
+    version: 0.3.2
+    repository: file://charts/etcd
   - name: grafana
     version: 0.1.0
     repository: file://charts/grafana
   - name: kibana
     version: 0.1.0
     repository: file://charts/kibana
+  - name: rabbitmq
+    version: 0.1.0
+    repository: file://charts/rabbitmq
   - name: weave
     version: 0.1.0
     repository: file://charts/weave

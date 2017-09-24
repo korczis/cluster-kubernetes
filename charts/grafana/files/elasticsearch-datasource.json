@@ -1,0 +1,22 @@
+{
+  "name": "elastisearch",
+  "type": "elasticsearch",
+  "typeLogoUrl": "",
+  "access": "proxy",
+  "url": "http://elasticsearch-service.default:9200",
+  "password": "",
+  "user": "",
+  "database": "[logstash-]YYYY.MM.DD",
+  "basicAuth": true,
+  "basicAuthUser": "elastic",
+  "basicAuthPassword": "changeme",
+  "withCredentials": true,
+  "isDefault": false,
+  "jsonData": {
+    "esVersion": 5,
+    "interval": "Daily",
+    "timeField": "@timestamp",
+    "tlsAuth": false
+  },
+  "secureJsonFields": {}
+}
